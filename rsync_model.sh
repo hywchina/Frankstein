@@ -1,0 +1,1 @@
+rsync -avP ~/.cache/huggingface/hub/* huyanwei@172.23.31.214:/home/huyanwei/.cache/huggingface/hub
