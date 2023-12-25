@@ -1,0 +1,1 @@
+{"instruction": "What's the current date?", "output": "The current date is: 2023-03-27.\n\nThe answer is: The current date is: 2023-03-27.\n\n", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "oasst"}

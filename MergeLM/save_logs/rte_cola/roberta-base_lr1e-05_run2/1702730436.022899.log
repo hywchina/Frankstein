@@ -1,0 +1,54 @@
+2023-12-16 12:40:36,023 - root - INFO - ********** Run starts. **********
+2023-12-16 12:40:36,023 - root - INFO - configuration is Namespace(dataset_name='rte_cola', auxiliary_dataset_name='rte', language_model_name='roberta-base', multitask_training=True, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=4, num_runs=5, device='cuda:4', target_dataset_name='cola', save_model_dir='./save_models/rte_cola/roberta-base_lr1e-05_run2')
+2023-12-16 12:40:37,815 - root - INFO - model -> MultiTaskModel(
+  (base_model): RobertaModel(
+    (embeddings): RobertaEmbeddings(
+      (word_embeddings): Embedding(50265, 768, padding_idx=1)
+      (position_embeddings): Embedding(514, 768, padding_idx=1)
+      (token_type_embeddings): Embedding(1, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): RobertaEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x RobertaLayer(
+          (attention): RobertaAttention(
+            (self): RobertaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): RobertaSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): RobertaIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): RobertaOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): RobertaPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (headers): ModuleDict(
+    (rte): Linear(in_features=768, out_features=2, bias=True)
+    (cola): Linear(in_features=768, out_features=2, bias=True)
+  )
+)
+2023-12-16 12:54:16,672 - root - INFO - get final performance on datasets ['rte', 'cola']...
+2023-12-16 12:54:25,433 - root - INFO - test performance on dataset cola, matthews_correlation: 0.5504
+2023-12-16 12:54:25,434 - root - INFO - test performance on dataset rte, accuracy: 0.7437
+2023-12-16 12:54:25,434 - root - INFO - averaged test performance: {'eval_loss': 0.5849, 'eval_averaged_scores': 0.647, 'eval_all_results': [{'matthews_correlation': 0.5504031254980248, 'dataset_name': 'cola'}, {'accuracy': 0.7436823104693141, 'dataset_name': 'rte'}], 'eval_runtime': 8.7605, 'eval_samples_per_second': 150.676, 'eval_steps_per_second': 1.256, 'epoch': 10.0, 'cola_matthews_correlation': 0.5504, 'rte_accuracy': 0.7437}
+2023-12-16 12:54:25,434 - root - INFO - run 2 cost 829.41 seconds.

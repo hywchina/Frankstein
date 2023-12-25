@@ -1,0 +1,28 @@
+2023-12-16 08:20:37,686 - root - INFO - ********** Run starts. **********
+2023-12-16 08:20:37,687 - root - INFO - configuration is Namespace(dataset_name='cola', auxiliary_dataset_name='cola', language_model_name='Llama-2-7b-chat-hf', multitask_training=False, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=0, num_runs=5, device='cpu', save_model_dir='./save_models/cola/Llama-2-7b-chat-hf_lr1e-05')
+2023-12-16 08:20:40,397 - root - INFO - model -> LlamaForSequenceClassification(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32000, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+          (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (score): Linear(in_features=4096, out_features=2, bias=False)
+)

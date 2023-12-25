@@ -1,0 +1,4 @@
+2023-12-17 06:24:52,563 - root - INFO - ********** Run starts. **********
+2023-12-17 06:24:52,564 - root - INFO - configuration is Namespace(finetuned_model_name='WizardMath-7B-V1.0', dataset_name='gsm8k', start_index=0, end_index=9223372036854775807, tensor_parallel_size=1, weight_format='delta_weight', weight_mask_rate=0.9, use_weight_rescale=False, mask_strategy='random', wizardcoder_use_llama2_as_backbone=False, cuda_device='0')
+2023-12-17 06:26:38,507 - root - INFO - saving model at ./save_models/gsm8k/WizardMath-7B-V1.0_inference_mask_0.9_rescale_False...
+2023-12-17 06:27:26,250 - root - INFO - model is saved

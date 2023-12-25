@@ -1,0 +1,1 @@
+{"instruction": "find a word that represents people reacting to unpleasant events", "output": "The word you are looking for is \"reaction\".\n\nThe answer is: The word you are looking for is \"reaction\".\n\n", "generator": "./save_merge_models/instruct_math/instruct/mask_merging/average_merging/mask_0.2_0.2_rescale_True", "dataset": "koala"}

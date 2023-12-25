@@ -1,0 +1,4 @@
+2023-12-16 13:42:56,640 - root - INFO - ********** Run starts. **********
+2023-12-16 13:42:56,640 - root - INFO - configuration is Namespace(language_model_name='roberta-base', batch_size=16, gpu=0, weight_format='delta_weight', weight_mask_rate=0.9, use_weight_rescale=True, mask_strategy='random', device='cuda:0', dataset_name='cola')
+2023-12-16 13:42:59,982 - root - INFO - get performance of roberta-base...
+2023-12-16 13:43:22,757 - root - INFO - roberta-base test performance on dataset cola: {'eval_loss': 0.4815, 'eval_matthews_correlation': 0.5908, 'eval_runtime': 22.7716, 'eval_samples_per_second': 45.803, 'eval_steps_per_second': 0.395}

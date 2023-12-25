@@ -1,0 +1,20 @@
+{
+    "eval_loss": 0.6079,
+    "eval_averaged_scores": 0.6416,
+    "eval_all_results": [
+        {
+            "matthews_correlation": 0.543216061185355,
+            "dataset_name": "cola"
+        },
+        {
+            "accuracy": 0.740072202166065,
+            "dataset_name": "rte"
+        }
+    ],
+    "eval_runtime": 8.5137,
+    "eval_samples_per_second": 155.044,
+    "eval_steps_per_second": 1.292,
+    "epoch": 10.0,
+    "cola_matthews_correlation": 0.5432,
+    "rte_accuracy": 0.7401
+}

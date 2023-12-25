@@ -1,0 +1,1 @@
+{"instruction": "can you write haiku for different inductive biases in deep learning models? start with attention", "output": "Attention in deep learning\nInductive bias, a key factor\nHelps models focus well", "generator": "./save_merge_models/instruct_math/instruct/mask_merging/average_merging/mask_0.2_0.2_rescale_True", "dataset": "oasst"}

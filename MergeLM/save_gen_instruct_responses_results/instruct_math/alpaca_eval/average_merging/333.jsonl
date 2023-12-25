@@ -1,0 +1,1 @@
+{"instruction": "Mike's mother had four kids. Three of them are named Luis, Drake, and Matilda. What is the name of the fourth kid?", "output": "The fourth child's name is Mike.", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "oasst"}

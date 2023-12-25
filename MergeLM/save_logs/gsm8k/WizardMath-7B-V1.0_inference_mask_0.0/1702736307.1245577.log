@@ -1,0 +1,2 @@
+2023-12-16 14:18:27,124 - root - INFO - ********** Run starts. **********
+2023-12-16 14:18:27,124 - root - INFO - configuration is Namespace(finetuned_model_name='WizardMath-7B-V1.0', dataset_name='gsm8k', start_index=0, end_index=9223372036854775807, tensor_parallel_size=1, weight_format='delta_weight', weight_mask_rate=0.0, use_weight_rescale=False, mask_strategy='random', wizardcoder_use_llama2_as_backbone=False)

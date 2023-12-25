@@ -1,0 +1,1 @@
+{"instruction": "Answer the following question.\n\nHow do you say \"good evening\" in French.", "output": "In French, \"good evening\" is \"bonsoir\".\n\nThe answer is: In French, \"good evening\" is \"bonsoir\".\n\n", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "selfinstruct"}

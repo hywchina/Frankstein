@@ -1,0 +1,1 @@
+{"instruction": "Convert the given HTML into Markdown format.\n\n<code>Use `code` in your Markdown file.</code>", "output": "Use `code` in your Markdown file.\n\nThe answer is: Use `code` in your Markdown file.\n\n", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "selfinstruct"}

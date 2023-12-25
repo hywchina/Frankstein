@@ -1,0 +1,28 @@
+2023-12-16 08:42:38,834 - root - INFO - ********** Run starts. **********
+2023-12-16 08:42:38,834 - root - INFO - configuration is Namespace(dataset_name='cola', auxiliary_dataset_name='cola', language_model_name='Mistral-7B-v0.1', multitask_training=False, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=0, num_runs=5, device='cpu', save_model_dir='./save_models/cola/Mistral-7B-v0.1_lr1e-05')
+2023-12-16 08:42:41,599 - root - INFO - model -> MistralForSequenceClassification(
+  (model): MistralModel(
+    (embed_tokens): Embedding(32000, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x MistralDecoderLayer(
+        (self_attn): MistralAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): MistralRotaryEmbedding()
+        )
+        (mlp): MistralMLP(
+          (gate_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (down_proj): Linear(in_features=14336, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): MistralRMSNorm()
+        (post_attention_layernorm): MistralRMSNorm()
+      )
+    )
+    (norm): MistralRMSNorm()
+  )
+  (score): Linear(in_features=4096, out_features=2, bias=False)
+)

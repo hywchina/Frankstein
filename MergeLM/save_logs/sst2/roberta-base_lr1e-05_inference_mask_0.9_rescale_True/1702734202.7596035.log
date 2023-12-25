@@ -1,0 +1,2 @@
+2023-12-16 13:43:22,760 - root - INFO - ********** Run starts. **********
+2023-12-16 13:43:22,760 - root - INFO - configuration is Namespace(language_model_name='roberta-base', batch_size=16, gpu=0, weight_format='delta_weight', weight_mask_rate=0.9, use_weight_rescale=True, mask_strategy='random', device='cuda:0', dataset_name='sst2')

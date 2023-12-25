@@ -1,0 +1,1 @@
+{"instruction": "Use appropriate emojis to convey the meaning in the given text.\n\nCute cat\nplayful\nSoft", "output": "\ud83d\udc31\ud83d\ude38\ud83e\uddf8", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "selfinstruct"}

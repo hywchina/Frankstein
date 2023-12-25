@@ -1,0 +1,1 @@
+{"instruction": "Paraphrase the given text in an academic style.\n\nLots of papers have been published on this topic.", "output": "Many scholarly articles have been written about this subject.\n\nThe answer is: Many scholarly articles have been written about this subject.\n\n", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "selfinstruct"}

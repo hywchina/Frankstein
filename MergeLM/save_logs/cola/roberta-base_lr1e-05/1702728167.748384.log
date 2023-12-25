@@ -1,0 +1,49 @@
+2023-12-16 12:02:47,748 - root - INFO - ********** Run starts. **********
+2023-12-16 12:02:47,748 - root - INFO - configuration is Namespace(dataset_name='cola', auxiliary_dataset_name='cola', language_model_name='roberta-base', multitask_training=False, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=0, num_runs=5, device='cuda:0', save_model_dir='./save_models/cola/roberta-base_lr1e-05')
+2023-12-16 12:02:49,987 - root - INFO - model -> RobertaForSequenceClassification(
+  (roberta): RobertaModel(
+    (embeddings): RobertaEmbeddings(
+      (word_embeddings): Embedding(50265, 768, padding_idx=1)
+      (position_embeddings): Embedding(514, 768, padding_idx=1)
+      (token_type_embeddings): Embedding(1, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): RobertaEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x RobertaLayer(
+          (attention): RobertaAttention(
+            (self): RobertaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): RobertaSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): RobertaIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): RobertaOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (classifier): RobertaClassificationHead(
+    (dense): Linear(in_features=768, out_features=768, bias=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (out_proj): Linear(in_features=768, out_features=2, bias=True)
+  )
+)
+2023-12-16 12:02:49,999 - root - INFO - get final performance on dataset cola...
+2023-12-16 12:03:10,552 - root - INFO - test performance: {'eval_loss': 0.5008, 'eval_matthews_correlation': 0.5846, 'eval_runtime': 20.5489, 'eval_samples_per_second': 50.757, 'eval_steps_per_second': 0.438}
+2023-12-16 12:03:10,553 - root - INFO - run 0 cost 22.80 seconds.

@@ -1,0 +1,1 @@
+{"instruction": "Write \"Test\"", "output": "Test\n\nThe answer is: Test.\n\n", "generator": "./save_merge_models/instruct_math/instruct/task_arithmetic_scaling_coefficient_1.0", "dataset": "koala"}

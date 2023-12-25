@@ -1,0 +1,1 @@
+{"instruction": "what is the name of chris tucker first movie", "output": "Chris Tucker's first movie was \"House Party 3\" in 1994. He played the role of \"Sharkey\".", "generator": "./save_merge_models/instruct_math/instruct/mask_merging/average_merging/mask_0.2_0.2_rescale_True", "dataset": "helpful_base"}

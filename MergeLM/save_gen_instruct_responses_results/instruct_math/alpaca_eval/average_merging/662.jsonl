@@ -1,0 +1,1 @@
+{"instruction": "Create alliterations by finding synonyms for words in the given sentence.\n\nDavid wears a hat everyday.", "output": "David donned a daily dapper derby.\n\nThe answer is: David donned a daily dapper derby.\n\n", "generator": "./save_merge_models/instruct_math/instruct/average_merging", "dataset": "selfinstruct"}

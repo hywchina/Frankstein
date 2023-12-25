@@ -1,0 +1,3 @@
+2023-12-16 04:01:31,726 - root - INFO - ********** Run starts. **********
+2023-12-16 04:01:31,726 - root - INFO - configuration is Namespace(dataset_name='cola', auxiliary_dataset_name='cola', language_model_name='roberta-base', multitask_training=False, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=0, num_runs=5, device='cpu', save_model_dir='./save_models/cola/roberta-base_lr1e-05')
+2023-12-16 04:01:31,920 - datasets.builder - WARNING - Found cached dataset glue (file:///home/huyanwei/.cache/huggingface/datasets/glue/cola/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)

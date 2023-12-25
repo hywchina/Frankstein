@@ -1,0 +1,4 @@
+2023-12-17 03:20:36,082 - root - INFO - ********** Run starts. **********
+2023-12-17 03:20:36,082 - root - INFO - configuration is Namespace(finetuned_model_name='WizardMath-7B-V1.0', dataset_name='alpaca_eval', start_index=0, end_index=9223372036854775807, tensor_parallel_size=1, weight_format='delta_weight', weight_mask_rate=0.1, use_weight_rescale=False, mask_strategy='random', wizardcoder_use_llama2_as_backbone=False)
+2023-12-17 03:22:22,109 - root - INFO - saving model at ./save_models/alpaca_eval/WizardMath-7B-V1.0_inference_mask_0.1_rescale_False...
+2023-12-17 03:23:10,461 - root - INFO - model is saved

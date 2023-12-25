@@ -1,0 +1,5 @@
+2023-12-16 13:08:12,897 - root - INFO - ********** Run starts. **********
+2023-12-16 13:08:12,897 - root - INFO - configuration is Namespace(language_model_name='roberta-base', batch_size=16, gpu=0, weight_format='delta_weight', weight_mask_rate=0.1, use_weight_rescale=False, mask_strategy='random', device='cuda:0', dataset_name='cola')
+2023-12-16 13:08:16,572 - root - INFO - get performance of roberta-base...
+2023-12-16 13:17:18,304 - evaluate.loading - WARNING - Using the latest cached version of the module from /home/huyanwei/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--glue/05234ba7acc44554edcca0978db5fa3bc600eeee66229abe79ff9887eacaf3ed (last modified on Sat Dec 16 11:58:23 2023) since it couldn't be found locally at evaluate-metric--glue, or remotely on the Hugging Face Hub.
+2023-12-16 13:17:18,333 - root - INFO - roberta-base test performance on dataset cola: {'eval_loss': 0.5279, 'eval_matthews_correlation': 0.5572, 'eval_runtime': 541.7574, 'eval_samples_per_second': 1.925, 'eval_steps_per_second': 0.017}

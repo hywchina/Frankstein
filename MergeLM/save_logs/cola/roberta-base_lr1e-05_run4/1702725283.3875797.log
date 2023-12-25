@@ -1,0 +1,55 @@
+2023-12-16 11:14:43,387 - root - INFO - ********** Run starts. **********
+2023-12-16 11:14:43,387 - root - INFO - configuration is Namespace(dataset_name='cola', auxiliary_dataset_name='cola', language_model_name='roberta-base', multitask_training=False, batch_size=16, num_epochs=10, learning_rate=1e-05, gpu=4, num_runs=5, device='cuda:4', save_model_dir='./save_models/cola/roberta-base_lr1e-05_run4')
+2023-12-16 11:14:44,461 - root - INFO - model -> RobertaForSequenceClassification(
+  (roberta): RobertaModel(
+    (embeddings): RobertaEmbeddings(
+      (word_embeddings): Embedding(50265, 768, padding_idx=1)
+      (position_embeddings): Embedding(514, 768, padding_idx=1)
+      (token_type_embeddings): Embedding(1, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): RobertaEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x RobertaLayer(
+          (attention): RobertaAttention(
+            (self): RobertaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): RobertaSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): RobertaIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): RobertaOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (classifier): RobertaClassificationHead(
+    (dense): Linear(in_features=768, out_features=768, bias=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (out_proj): Linear(in_features=768, out_features=2, bias=True)
+  )
+)
+2023-12-16 11:14:44,510 - root - INFO - get final performance on dataset cola...
+2023-12-16 11:14:53,298 - evaluate.loading - WARNING - Using the latest cached version of the module from /home/huyanwei/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--glue/05234ba7acc44554edcca0978db5fa3bc600eeee66229abe79ff9887eacaf3ed (last modified on Sat Dec 16 04:20:46 2023) since it couldn't be found locally at evaluate-metric--glue, or remotely on the Hugging Face Hub.
+2023-12-16 11:14:53,318 - root - INFO - test performance: {'eval_loss': 0.5429, 'eval_matthews_correlation': 0.5783, 'eval_runtime': 8.8048, 'eval_samples_per_second': 118.458, 'eval_steps_per_second': 1.022}
+2023-12-16 11:14:53,319 - root - INFO - run 4 cost 9.93 seconds.
+2023-12-16 11:14:53,319 - root - INFO - test performance on run 0: {'eval_loss': 0.5008, 'eval_matthews_correlation': 0.5846, 'eval_runtime': 122.3707, 'eval_samples_per_second': 8.523, 'eval_steps_per_second': 0.074}
+2023-12-16 11:14:53,319 - root - INFO - test performance on run 1: {'eval_loss': 0.5429, 'eval_matthews_correlation': 0.5783, 'eval_runtime': 8.7622, 'eval_samples_per_second': 119.034, 'eval_steps_per_second': 1.027}
+2023-12-16 11:14:53,319 - root - INFO - test performance on run 2: {'eval_loss': 0.5429, 'eval_matthews_correlation': 0.5783, 'eval_runtime': 9.5883, 'eval_samples_per_second': 108.778, 'eval_steps_per_second': 0.939}
+2023-12-16 11:14:53,319 - root - INFO - test performance on run 3: {'eval_loss': 0.5429, 'eval_matthews_correlation': 0.5783, 'eval_runtime': 9.7945, 'eval_samples_per_second': 106.488, 'eval_steps_per_second': 0.919}
+2023-12-16 11:14:53,319 - root - INFO - test performance on run 4: {'eval_loss': 0.5429, 'eval_matthews_correlation': 0.5783, 'eval_runtime': 8.8048, 'eval_samples_per_second': 118.458, 'eval_steps_per_second': 1.022}
