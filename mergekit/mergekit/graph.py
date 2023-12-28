@@ -47,6 +47,13 @@ class TensorReference(BaseModel, frozen=True):
     Attributes:
     - model: An optional reference to a language model.
     - key: A string identifier for the tensor.
+
+    张量的引用，可选择性地与特定模型关联。
+
+    属性:
+    - model: 可选的语言模型引用。
+    - key: 张量的字符串标识符。
+
     """
 
     model: Optional[ModelReference]

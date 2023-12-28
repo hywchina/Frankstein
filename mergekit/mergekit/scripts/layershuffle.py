@@ -30,13 +30,16 @@ from mergekit.config import (
 from mergekit.merge import MergeOptions, run_merge
 
 
+ # 主函数，处理命令行参数并执行模型层合并。
 def main(
     out_path: Annotated[
         str, typer.Argument(help="Output path for merged model", metavar="PATH")
     ],
+    # model: 要合并的模型列表。
     model: Annotated[
         List[str], typer.Option(help="Add a model to the merge", metavar="MODEL")
     ],
+    # weight: 每个模型的权重。
     weight: Annotated[
         List[float],
         typer.Option(
@@ -51,27 +54,34 @@ def main(
     write_yaml: Annotated[
         Optional[str], typer.Option(help="Path to write YAML merge config to")
     ] = None,
+    # dry_run: 仅生成配置，不执行合并操作。
     dry_run: Annotated[
         bool, typer.Option(help="Generate a config but do not run the merge")
     ] = False,
+    # fp16: 是否使用float16精度。
     fp16: bool = False,
     lora_merge_cache: Annotated[
         Optional[str],
         typer.Option(help="Path to store merged LORA models", metavar="PATH"),
     ] = None,
+    # transformers_cache: 覆盖下载模型的存储路径。
     transformers_cache: Annotated[
         Optional[str],
         typer.Option(
             help="Override storage path for downloaded models", metavar="PATH"
         ),
     ] = None,
+    # copy_tokenizer: 是否将分词器复制到输出中。
     copy_tokenizer: Annotated[
         bool, typer.Option(help="Copy a tokenizer to the output")
     ] = True,
+    # full_random: 是否随机化层索引及源模型。
     full_random: Annotated[
         bool, typer.Option(help="Randomize layer index as well as source model")
     ] = False,
 ):
+    # 逻辑关系梳理：
+    # 1. 解析命令行参数，创建模型的输入定义和合并配置。
     models = [ModelReference.parse(m) for m in model]
 
     m0_cfg = models[0].config()

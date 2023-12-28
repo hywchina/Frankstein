@@ -25,59 +25,75 @@ class ArchitectureInfo(ABC):
     def pre_weights(self) -> List[str]:
         """Return a list of all weights preceding the first layer."""
         ...
+        # 定义一个抽象方法 pre_weights。这个方法应当返回一个字符串列表，包含第一层之前的所有权重。
 
     @abstractmethod
     def post_weights(self) -> List[str]:
         """Return a list of all weights following the final layer."""
         ...
+        # 定义一个抽象方法 post_weights。这个方法应当返回一个字符串列表，包含最后一层之后的所有权重。
 
     @abstractmethod
     def layer_weight_formats(self) -> List[str]:
         """Return a list of format strings all weights associated with a layer."""
         ...
+        # 定义一个抽象方法 layer_weight_formats。这个方法应当返回一个字符串列表，包含与一层相关的所有权重的格式字符串。
 
     @abstractmethod
     def embed_weights(self) -> List[str]:
         ...
+        # 定义一个抽象方法 embed_weights。具体实现应当返回与嵌入相关的权重列表。
 
     def num_layers(self, config: PretrainedConfig) -> int:
         return config.num_hidden_layers
+        # 定义一个方法 num_layers。这个方法返回模型隐藏层的数量。
 
     def num_layers_config_key(self) -> str:
         """Key in config that represents number of layers"""
         return "num_hidden_layers"
+        # 定义一个方法 num_layers_config_key。这个方法返回表示层数的配置键值。
 
 
 class StaticTensorNames(ArchitectureInfo, BaseModel, frozen=True):
+    # 定义一个名为 StaticTensorNames 的类，继承自 ArchitectureInfo 和 BaseModel。
+    # 参数 frozen=True 表示这个模型是不可变的（即实例化后不能更改属性值）。
+
+    # 架构的名称。
     name: str
 
-    pre_weight_names: List[str]  # weights applied before first layer
-    post_weight_names: List[str]  # weights applied after last layer
-    embed_weight_names: List[str]  # weights for embed/lm_head
-    layer_prefix_format: str
-    layer_weight_suffixes: List[str]
-    num_layers_key: Optional[str] = None
+    pre_weight_names: List[str]  # weights applied before first layer # 在第一层之前应用的权重名称列表。
+    post_weight_names: List[str]  # weights applied after last layer # 在最后一层之后应用的权重名称列表。
+    embed_weight_names: List[str]  # weights for embed/lm_head # 用于嵌入（embed）或语言模型头（lm_head）的权重名称列表。
+    layer_prefix_format: str # 层的前缀格式。
+    layer_weight_suffixes: List[str] # 层相关的权重后缀列表。
+    num_layers_key: Optional[str] = None # 代表层数的键名，可选。
 
+    # 重写 pre_weights 方法，返回 pre_weight_names 列表。
     def pre_weights(self) -> List[str]:
         return self.pre_weight_names
 
+    # 重写 post_weights 方法，返回 post_weight_names 列表。
     def post_weights(self) -> List[str]:
         return self.post_weight_names
 
+    # 重写 embed_weights 方法，返回 embed_weight_names 列表。
     def embed_weights(self) -> List[str]:
         return self.embed_weight_names
 
+    # 重写 layer_weight_formats 方法，返回层权重格式列表。
     def layer_weight_formats(self) -> List[str]:
         res = []
         for suffix in self.layer_weight_suffixes:
             res.append(self.layer_prefix_format + "." + suffix)
         return res
-
+    
+    # 重写 num_layers_config_key 方法，如果 num_layers_key 存在，返回它；否则，调用父类方法。
     def num_layers_config_key(self) -> str:
         if self.num_layers_key:
             return self.num_layers_key
         return super().num_layers_config_key()
-
+    
+    # 重写 num_layers 方法，返回由 num_layers_config_key 指定的配置项的值。
     def num_layers(self, config: PretrainedConfig) -> int:
         return getattr(config, self.num_layers_config_key())
 
@@ -290,6 +306,7 @@ def get_architecture_info(config: PretrainedConfig) -> StaticTensorNames:
     if arch_name == PhiTensorNames.architecture_name:
         return PhiTensorNames(config)
 
+     # 定义一个支持的架构列表。
     supported = [
         LLAMA_INFO,
         MISTRAL_INFO,
@@ -300,6 +317,7 @@ def get_architecture_info(config: PretrainedConfig) -> StaticTensorNames:
         CHATGLM_INFO,
         STABLELM_INFO,
     ]
+    # 遍历支持的架构列表，检查是否有与给定架构名称匹配的架构。如果找到匹配的架构，则返回相应的信息对象。
     for arch in supported:
         if arch.name == arch_name:
             return arch

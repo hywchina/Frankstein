@@ -61,7 +61,7 @@ class ShardedTensorIndex:
     def from_disk(cls, base_path: str) -> "ShardedTensorIndex":
         model_path = None
         for model_file_name in ["model.safetensors", "pytorch_model.bin"]:
-            candidate_path = os.path.join(base_path, model_file_name)
+            candidate_path = os.path.join(base_path, model_file_name) # 候选路径
             if os.path.exists(candidate_path) or os.path.exists(
                 candidate_path + ".index.json"
             ):
