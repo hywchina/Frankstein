@@ -23,6 +23,7 @@ from mergekit.merge_methods.base import MergeMethod
 
 
 class PassthroughMerge(MergeMethod):
+    # 定义 __call__ 方法，使得类的实例可以像函数那样被调用。
     def __call__(
         self,
         parameter_name: str,
@@ -30,9 +31,11 @@ class PassthroughMerge(MergeMethod):
         config: ConfigReader,
         **_kwargs,
     ) -> torch.Tensor:
+        # 如果输入张量不是恰好一个，抛出运行时错误。
         if len(input_tensors) != 1:
             raise RuntimeError("Passthrough merge expects exactly one tensor")
-
+        
+        # 获取输入张量字典中的第一个（也是唯一的）张量。
         res = list(input_tensors.values())[0]
         scale = config.parameter("scale")
         if scale is not None:

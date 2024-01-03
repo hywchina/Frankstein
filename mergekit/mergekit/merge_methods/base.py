@@ -23,8 +23,16 @@ from mergekit.common import ModelReference
 from mergekit.config import ConfigReader, MergeConfiguration
 from mergekit.graph import TensorReference
 
+"""
+
+MergeMethod 类是一个抽象基类（ABC），它定义了合并模型参数的基本结构和方法。
+这个类提供了用于合并操作的基本框架，并可以被不同的具体合并策略所继承和实现。
+以下是对这个类的逐行中文注释：
+"""
 
 class MergeMethod(ABC):
+    # 定义一个名为 MergeMethod 的抽象基类。
+
     @abstractmethod
     def __call__(
         self,
@@ -33,25 +41,35 @@ class MergeMethod(ABC):
         config: ConfigReader,
         **kwargs,
     ) -> torch.Tensor:
-        ...
+        # 定义一个抽象方法 __call__，这使得类的实例可以像函数那样被调用。
+        # 这个方法需要在子类中被具体实现。
 
     def general_dependencies(self) -> Sequence[TensorReference]:
         """List any tensors necessary for *every* merge operation"""
+        # 定义一个方法 general_dependencies，用于列出每次合并操作都需要的张量。
         return []
+        # 默认返回一个空列表。
 
     def input_layer_dependencies(
         self, model: ModelReference, layer_idx: int
     ) -> Sequence[TensorReference]:
         """List any tensors necessary when input includes a specific layer"""
+        # 定义一个方法 input_layer_dependencies，用于列出当输入包含特定层时所需的张量。
         return []
+        # 默认返回一个空列表。
 
     def model_out_config(self, config: MergeConfiguration) -> PretrainedConfig:
         """Return a configuration for the resulting model."""
+        # 定义一个方法 model_out_config，用于返回合并后模型的配置。
         if config.base_model:
             res = ModelReference.parse(config.base_model).config()
+            # 如果配置中有基础模型，解析并获取该模型的配置。
         else:
             res = config.referenced_models()[0].config()
+            # 否则，获取第一个参考模型的配置。
 
         if config.dtype:
             res.torch_dtype = config.dtype
+            # 如果配置中指定了数据类型，设置结果模型的数据类型。
         return res
+        # 返回配置结果。
