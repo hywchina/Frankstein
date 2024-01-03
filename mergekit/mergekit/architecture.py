@@ -248,32 +248,55 @@ CHATGLM_INFO = StaticTensorNames(
     ],
 )
 
-
 class PhiTensorNames(ArchitectureInfo):
+    """
+    类功能简述：
+
+    PhiTensorNames 类为 MixFormerSequentialForCausalLM 架构提供必要的架构信息。
+    它定义了如何获取该架构特有的预处理权重、后处理权重、嵌入权重以及层权重的名称和格式。
+    类的方法包括获取预处理和后处理层的权重名称、嵌入层的权重名称、层权重的格式以及模型的层数和层数配置键。
+    这些信息对于管理和操作此架构的模型特别重要，尤其是在模型合并、权重转换和模型重建等任务中。
+    """
+
+    # 继承自 ArchitectureInfo 的 PhiTensorNames 类，专用于 MixFormerSequentialForCausalLM 架构
+
     architecture_name: str = "MixFormerSequentialForCausalLM"
+    # 类属性，定义架构名称
 
     def __init__(self, config: PretrainedConfig):
         self.config = config
+        # 构造函数，接收并存储预训练配置
 
     def pre_weights(self) -> List[str]:
+        # 定义预处理权重名称的方法
         return ["layers.0.wte.weight"]
+        # 返回预处理层的权重名称列表
 
     def post_weights(self) -> List[str]:
+        # 定义后处理权重名称的方法
         fake_layer_idx = self.config.n_layer + 1
+        # 计算假设的层索引
+
         return [
             f"layers.{fake_layer_idx}.{suffix}"
             for suffix in ["linear.bias", "linear.weight", "ln.bias", "ln.weight"]
         ]
+        # 返回后处理层的权重名称列表
 
     def embed_weights(self) -> List[str]:
+        # 定义嵌入权重名称的方法
         fake_layer_idx = self.config.n_layer + 1
+        # 计算假设的层索引
+
         return [
             "layers.0.wte.weight",
             f"layers.{fake_layer_idx}.linear.weight",
             f"layers.{fake_layer_idx}.linear.bias",
         ]
+        # 返回嵌入层的权重名称列表
 
     def layer_weight_formats(self) -> List[str]:
+        # 定义层权重格式的方法
         return [
             ("layers.{idx}." + suffix)
             for suffix in [
@@ -290,12 +313,18 @@ class PhiTensorNames(ArchitectureInfo):
                 "mlp.fc2.weight",
             ]
         ]
+        # 返回层权重的格式列表
 
     def num_layers(self, config: PretrainedConfig) -> int:
+        # 定义获取层数的方法
         return config.n_layer
+        # 返回配置中定义的层数
 
     def num_layers_config_key(self) -> str:
+        # 定义获取层数配置键的方法
         return "n_layer"
+        # 返回层数配置键
+
 
 
 def get_architecture_info(config: PretrainedConfig) -> StaticTensorNames:

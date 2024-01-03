@@ -43,6 +43,7 @@ class MergeMethod(ABC):
     ) -> torch.Tensor:
         # 定义一个抽象方法 __call__，这使得类的实例可以像函数那样被调用。
         # 这个方法需要在子类中被具体实现。
+        ...
 
     def general_dependencies(self) -> Sequence[TensorReference]:
         """List any tensors necessary for *every* merge operation"""
