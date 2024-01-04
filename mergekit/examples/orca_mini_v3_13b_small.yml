@@ -1,0 +1,6 @@
+slices:
+  - sources:
+    - model: pankajmathur/orca_mini_v3_13b
+      layer_range: [20, 20] # [a, b） 左闭右开
+merge_method: passthrough # passthrough（透传）
+dtype: float16
