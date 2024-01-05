@@ -3,8 +3,9 @@ export HF_ENDPOINT="https://hf-mirror.com"
 # export HF_HUB_ENABLE_HF_TRANSFER=1
 
 # 配置文件和输出路径
-CONFIG_FILE="/home/huyanwei/projects/mergekit/examples/gradient-slerp.yml"
-OUT_PATH="/home/huyanwei/projects/mergekit/merged/gradient-slerp"
+CONFIG_NAME="linear"
+CONFIG_FILE="/Users/weihuyan/Projects/mergekit/examples/${CONFIG_NAME}.yml"
+OUT_PATH="/Users/weihuyan/Projects/mergekit/merged/${CONFIG_NAME}"
 
 # 可选参数
 LORA_MERGE_CACHE="" # 例如 path/to/lora_merge_cache/
