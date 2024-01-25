@@ -10,8 +10,9 @@ if [ "$#" -lt 1 ]; then
 fi
 
 # 读取传入的参数
-model_name=$1
-local_dir=$2
+repo_type=$1
+model_name=$2
+local_dir=$3  # 可选的本地目录参数
 
 # 从模型名称中提取最后一个部分作为日志文件的一部分
 log_model_name=$(basename "$model_name")
@@ -30,7 +31,8 @@ fi
 
 # 构建 huggingface-cli 命令
 # command="huggingface-cli download --resume-download $model_name --token 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  --quiet"
-command="huggingface-cli download --resume-download $model_name --token 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"
+# command="huggingface-cli download --resume-download $model_name --token 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"
+command="huggingface-cli download --resume-download --repo-type $repo_type $model_name --token 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"
 
 # 如果提供了本地目录，添加到命令中
 if [ ! -z "$local_dir" ]; then
@@ -39,7 +41,7 @@ fi
 
 # 使用 nohup 在后台运行命令并将输出重定向到日志文件
 echo "$command"
-nohup bash -c "$command" > "$log_file" 2>&1 &
+nohup time bash -c "$command" > "$log_file" 2>&1 &
 
 echo "Download of $model_name is running in background. Log file: $log_file"
 
